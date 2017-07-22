@@ -1,5 +1,7 @@
 $(document).ready(function() {
     $('#action').click(function() {
+        var userid = 1;
+        var state = $('#state').val();
         var id = $('#id').val();
         // var type = 0;
         // var text_1 = '刷卡(取車)';
@@ -11,25 +13,27 @@ $(document).ready(function() {
         //     $(this).html(text_1);
         //     type = 1;
         // }
-        $('#id').val('');
-        console.log('action click id:', id);
-        console.log('action click type:', type);
+        change(userid, state);
         // card_in_out(id, type);
     });
 });
 
-function card_in_out(id, type) {
-    var data = {};
-    data.id = id;
-    data.type = type;
+function change(userid, state) {
+    console.log('userid', userid);
+    console.log('state', state);
+    var data = new FormData();
+    data.append('userid', userid);
+    data.append('state', state);
     $.ajax({
         type: 'POST',
-        data: JSON.stringify(data),
-        contentType: 'application/json',
-        url: 'http://localhost:3000/api/card_in_out',
+        data: data,
+        processData: false,
+        contentType: false,
+        url: 'http://140.120.54.104:8001/hackntu/public/api/carddata',
         success: function(data) {
             console.log('success');
             console.log(JSON.stringify(data));
+            window.location.replace("http://localhost:3000/");
         }
     });
 }

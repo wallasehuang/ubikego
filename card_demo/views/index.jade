@@ -7,8 +7,9 @@ block content
       div.form-group
         label 借還車點
         input#id.form-control
+        input#state(type="hidden" value="#{state}")
 
-  a(href="http://localhost:3000/")#action.btn.btn-primary=btn_text
+  a#action.btn.btn-primary=btn_text
 
 
 block script
