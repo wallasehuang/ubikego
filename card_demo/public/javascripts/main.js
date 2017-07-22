@@ -2,7 +2,16 @@ $(document).ready(function() {
     $('#action').click(function() {
         var userid = 1;
         var state = $('#state').val();
-        var id = $('#id').val();
+        console.log('main.js 5', state);
+        // if (state == 1) {
+        //     console.log('main.js 5', state);
+        //     state = 0;
+        //     console.log('main.js 7', state);
+        // } else if (state == 0) {
+        //     console.log('main.js 8', state);
+        //     state = 1;
+        //     console.log('main.js 11', state);
+        // }
         // var type = 0;
         // var text_1 = '刷卡(取車)';
         // var text_2 = '刷卡(還車)';
